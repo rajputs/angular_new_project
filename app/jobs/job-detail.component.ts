@@ -41,20 +41,19 @@ export class JobdetailComponent implements OnInit {
 
     }
     job: any
+    
+    /** This is called uring the initialisation of this component.
+     * calls subscribe to get the values. adn assigns to this.job in the callback.
+     * 
+     * 
+     */
     ngOnInit() {
         console.log('inside ngOnInit() of JobdetailComponent')
         this.jobService.getJobById(+this.activatedRoute.snapshot.params['id']).subscribe(job => this.job = job)
-        //console.log(this.job)
+        
     }
 
-    showJob(job) {
-        if (job) {
-            this.job = job
-            console.log("inside showJob()" + job)
-        }
-     
 
-    }
 
 }
 

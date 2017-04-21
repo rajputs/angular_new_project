@@ -42,6 +42,7 @@ export class RouteActivatorService implements CanActivate {
         }
 
     }
+/** This is not called. */
     handler(err) {
         console.error('Inside error handler')
         console.error(err)

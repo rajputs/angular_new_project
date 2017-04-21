@@ -15,7 +15,7 @@ styles:[`.errorM {
         }`]
 
 })
-
+/** Incase the use manually enters the url and uses incorret job id, this componenet will be displayed */
 export class JobnotfoundComponent{
 
 }

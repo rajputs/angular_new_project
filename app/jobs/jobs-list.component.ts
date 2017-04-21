@@ -31,14 +31,18 @@ export class JobslistComponent implements OnInit {
     constructor(private jobsService: JobsService, private _route: ActivatedRoute) {
         console.log('constructor for JobslistComponent called')
     }
-
+    /** The resolver fetches the data from the service and stores in the param 
+     * This is done so that the list component and the data arrive at the same point in time for better
+     * user expereince
+     */
     ngOnInit() {
-        // this.jobsService.getJobs().subscribe(res=>this.jobs=res)
+        
         this.jobs = this._route.snapshot.data['jobsfromresolve']
         this.visibleJobs = this.jobs
         console.log('inside ngOnInit()=>' + this.visibleJobs)
     }
-
+    
+    /** filters the visibleJobs using array filter method  */
     onClick(value) {
         let filterBy = value.target.innerHTML.toLocaleLowerCase()
         console.log(filterBy)

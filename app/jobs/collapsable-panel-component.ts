@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-
+/** ngcontent used to toggle the contents in the thumbnail */
 @Component({
     selector:'collapsable-panel'
     ,
