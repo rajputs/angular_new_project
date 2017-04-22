@@ -6,6 +6,7 @@ export class Job {
     jobpublishedon?:string
     jobdescription?:string
     jobcategory?:string
+    
     joblink?:string
 
 }

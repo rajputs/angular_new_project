@@ -12,13 +12,15 @@ import { JobdetailComponent } from './jobs/job-detail.component';
 import { CollapsablePanel } from './jobs/collapsable-panel-component';
 import { JobnotfoundComponent } from "./jobs/jobs-notfound.component";
 import { RouteActivatorService } from './service/route-service';
+import { ShowService } from './service/searchshow-service';
 import { JobsResolver } from './service/jobs-resolver';
+import {JobsSearchComponent} from './jobs/jobs-search.component'
 
 import { appRoutes } from './routes';
 @NgModule({
   declarations: [
     AppComponent,JobslistComponent,JobthumbnailComponent,JobdetailComponent,
-    JobnotfoundComponent,CollapsablePanel
+    JobnotfoundComponent,CollapsablePanel,JobsSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { appRoutes } from './routes';
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [JobsService,RouteActivatorService,JobsResolver],
+  providers: [JobsService,RouteActivatorService,JobsResolver,ShowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

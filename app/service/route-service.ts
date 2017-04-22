@@ -20,7 +20,7 @@ export class RouteActivatorService implements CanActivate {
     show?: any
 
     /**This returns true, if the job id is valid else false
-     * the job service return the Observable of boolean and map pases this value to showPage() method.
+     * the job service return the Observable of boolean and map passes this value to showPage() method.
      * Again note, that no subscribe method is invoked.
      * 
      */

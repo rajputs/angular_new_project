@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { ShowService  } from '../app/service/searchshow-service';
 
 @Component({
   selector: 'main-app-root',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Jobs Board';
+
+
 }
