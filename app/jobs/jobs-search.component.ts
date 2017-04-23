@@ -7,19 +7,23 @@ import { Job} from "./job-model";
     selector: 'job-search',
     template: `
 
-<div class="row">
-  <div class="col-md-2 col-md-offset-3"> 
-    <input type="text"  id="search" #search>
-  </div>
-  <div class="col-md-2">
-    <button type="button" class= "btn btn-primary" (click) ="searchGo(search.value)">Search jobs</button>
-  </div>
-</div>
+
+
+  
+  <form class ="form-inline" align="center">
+    <div class="input-group">
+      <input type="text" class="form-control" size="50" placeholder="Search Jobs" #search  (keyup) ="searchGo(search.value)"required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger" (click) ="searchGo(search.value)">Search</button>
+      </div>
+    </div>
+  </form>
 
 
 
 
 `
+
 
 
 })
@@ -46,11 +50,11 @@ export class JobsSearchComponent implements OnInit {
        
     }
 
-    
+   
   ngOnInit(): void {
       console.log("inside ngOninit() of job search")
       this.searchTermStream
-          //.debounceTime(300) 
+          .debounceTime(300) 
           .distinctUntilChanged()
           .switchMap(term => this._service.searchJobs(term)).subscribe(x=>
           {

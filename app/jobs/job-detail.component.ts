@@ -4,18 +4,19 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     template: `
-<div class="col-md-7">
+<div class="col-md-6 col-md-offset-3">
 <div class="panel panel-primary">
 <div class="panel-heading">{{job?.jobtitle}}</div>
 
     <div class="panel-body">
-    Job Role:{{job?.jobtitle}}<br/>
-    Employment Type:{{job?.jobtype}}<br/>
-    Place:{{job?.joblocation}}<br/>
-    Date:{{job?.jobpublishedon|date}}<br/>
-    Job Description:{{job?.jobdescription}}<br/>
-    Job Category:{{job?.jobcategory}}<br/>
-    Job URL:{{job?.joblink}}<br/>
+    <span class="bold">Job Role</span>:{{job?.jobtitle}}<br/>
+     <span class="bold">Emp.Type</span>:{{job?.jobtype}}<br/>
+     <span class="bold">Location</span>:{{job?.joblocation}}<br/>
+     <span class="bold">Date</span>:{{job?.jobpublishedon|date}}<br/>
+     <span class="bold">Job Description</span>:{{job?.jobdescription}}<br/>
+    <span class="bold"> Job Category</span>:{{job?.jobcategory}}<br/>
+     <span class="bold">Job URL</span>:<a href="{{job?.joblink}}">{{job?.joblink}}</a><br/>
+     <br/>
     <button type ="button" class="btn btn-warning" [routerLink]="['/jobs']">Back</button>
  </div>
 </div>
@@ -32,7 +33,12 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 
 
- }`
+ }
+ .bold{
+     font-size:15px;
+     font-weight:bold;
+ }
+ `
     ]
 })
 

@@ -4,14 +4,14 @@ import {Component,Input} from '@angular/core'
 
 selector:'job-thumbnail',
 template:`
-<div class="col-md-7">
+<div class="col-md-6 col-md-offset-3">
 <div class="panel panel-primary" >
-<div class="panel-heading"><h3 class="panel-title">{{job.jobtitle|uppercase}}&nbsp;&nbsp;({{job.jobcategory}})</h3></div>
+<div class="panel-heading"><h3 class="panel-title">{{job.jobtitle|uppercase}}</h3></div>
 <div class="panel-body">
 <collapsable-panel>
     <p>Job Role:{{job.jobtitle}}<br/>
-    Employment Type:{{job.jobtype}}<br/>
-    Place:{{job.joblocation}}<br/>
+    Emp.Type:{{job.jobtype}}<br/>
+    Location:{{job.joblocation}}<br/>
     Date:{{job.jobpublishedon|date:'shortDate'}}</p>
    
 </collapsable-panel>   

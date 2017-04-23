@@ -17,17 +17,20 @@ import 'rxjs/add/operator/mergeMap';
 
 export class JobsService {
     id: number
+    //id: string
     term:string
+     //url:string='https://angularproject-88dcd.firebaseio.com/jobsummary.json'
+      url:string='https://jobsgalore-2ba98.firebaseio.com/jobsummary.json'
     constructor(private http: Http) {
-
+   
     }
 
     /** This returns a job . invoked from ngInit() of Jobdetails component */
     getJobById(id: number): Observable<Job> {
         console.log('inside getJobById()')
         // .do has been added to help while debugging.
-        //return this.getJobsRemote().do(x => console.log(x)).map(jobs => jobs.find(job => job.id === id)).do(x => console.log(x)).catch(this.handleError)
-        return this.http.get("https://angularproject-88dcd.firebaseio.com/jobs/"+id+".json").map(res=>res.json())
+        return this.getJobsRemote().do(x => console.log(x)).map(jobs => jobs.find(job => job.id === id)).do(x => console.log(x)).catch(this.handleError)
+        //return this.http.get("https://angularproject-88dcd.firebaseio.com/jobs/"+id+".json").map(res=>res.json())
     }
     /** This is invoked to check if that job id exists. Invoked from canActivate method in the RouteAcivator */
     isJobPresent(id: number): Observable<boolean> {
@@ -48,7 +51,7 @@ export class JobsService {
     getJobsRemote(): Observable<Job[]> {
         console.log('fetching data.json')
         //get all the jobs from firebase end point.
-        return this.http.get('https://angularproject-88dcd.firebaseio.com/jobsummary.json').do(x => console.log(x))
+        return this.http.get(this.url).do(x => console.log(x))
             .map(res=>res.json())//.do(x => console.log(x))
             .catch(this.handleError)
 
@@ -60,7 +63,7 @@ export class JobsService {
         console.log('inside searchJobs()')
         // .do has been added to help while debugging.
         this.term=term
-        return this.http.get('https://angularproject-88dcd.firebaseio.com/jobsummary.json')
+        return this.http.get(this.url)
         .map(res => res.json())
         .map(jobs => jobs.filter(job => (job.jobtitle.toLowerCase().indexOf(this.term.toLowerCase())>-1)))
 

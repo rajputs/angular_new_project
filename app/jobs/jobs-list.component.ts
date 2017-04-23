@@ -7,7 +7,7 @@ import { Job } from "./job-model";
     selector: 'jobs-list',
     template:
     `<job-search (filteredJobs)="handleFilteredJobs($event)"></job-search>
-<div><h4>Latest Jobs listings</h4>
+<div align="center"><h4>Latest Jobs listings</h4>
 <button type="button" style="margin-left:20px"  [class.active]="filterBy==='all'" class="btn btn-basic citylinks" (click)="onClick($event)">All</button>
 <button type="button" [class.active]="filterBy==='full time'" class="btn btn-basic citylinks" (click)="onClick($event)">Full Time</button>
 <button type="button" [class.active]="filterBy==='contract/temp'" class="btn btn-basic citylinks" (click)="onClick($event)">Contract/Temp</button>
