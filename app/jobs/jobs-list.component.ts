@@ -8,7 +8,7 @@ import { Job } from "./job-model";
     template:
     `<job-search (filteredJobs)="handleFilteredJobs($event)"></job-search>
 <div align="center"><h4>Latest Jobs listings</h4>
-<button type="button" style="margin-left:20px"  [class.active]="filterBy==='all'" class="btn btn-basic citylinks" (click)="onClick($event)">All</button>
+<button type="button" style="margin-left:20px"  [class.active]="filterBy==='all'" class="btn btn-basic citylinks" (click)="onClick($event)">All <span class="badge">{{visibleJobs.length}}</span></button>
 <button type="button" [class.active]="filterBy==='full time'" class="btn btn-basic citylinks" (click)="onClick($event)">Full Time</button>
 <button type="button" [class.active]="filterBy==='contract/temp'" class="btn btn-basic citylinks" (click)="onClick($event)">Contract/Temp</button>
 </div>
@@ -52,7 +52,7 @@ export class JobslistComponent implements OnInit {
     onClick(value) {
         let filterBy = value.target.innerHTML.toLocaleLowerCase()
         console.log(filterBy)
-        if (filterBy === 'all') {
+        if (filterBy.indexOf('all') !== -1) {
             this.visibleJobs = this.jobs
         }
         else {
